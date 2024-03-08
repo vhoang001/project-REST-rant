@@ -24,3 +24,9 @@ app.get('/', (req, res) => {
   
 module.exports = router
 
+// POST /places
+router.post('/', (req, res) => {
+    console.log(req.body)
+    res.send('POST /places')
+  })
+  
