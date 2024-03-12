@@ -47,4 +47,18 @@ router.post('/', (req, res) => {
     places.push(req.body)
     res.redirect('/places')
   })
+
+//Pass the appropriate data item from the places array to the render method so that it is available for use in the view.
+  router.get('/:id/edit', (req, res) => {
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+      res.render('places/edit', { place: places[id] })
+    }
+  })
   
